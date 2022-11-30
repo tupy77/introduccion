@@ -1,1 +1,13 @@
-hola tu
+{% extends "base.html" %}
+{% block content %}
+    blog list
+    <br>
+    {% for post in posts %}
+        <a href="{% url 'blog:detail' post.id %}">{{ post.title }}</a>
+        <a href="{% url 'blog:update' post.id %}">Update</a>
+        <a href="{% url 'blog:delete' post.id %}">Delete</a>
+    {% endfor %}
+
+    <br>
+    <a name="" id="" class="btn btn-primary" href="{% url 'blog:create' %}" role="button">Create</a>
+{% endblock content %}
